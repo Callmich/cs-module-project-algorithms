@@ -2,6 +2,7 @@
 Input: a List of integers
 Returns: a List of integers
 '''
+import math
 def product_of_all_other_numbers(arr):
     # iterate through the array
         # for each index make a temp array
@@ -9,6 +10,15 @@ def product_of_all_other_numbers(arr):
         # multiply the contents of the list
         # append that into a new array
     #return new array
+    finalAnsw = []
+    for x in range(len(arr)):
+        tempArr = []
+        tempArr.extend(arr)
+        del tempArr[x]
+        answ = math.prod(tempArr)
+        finalAnsw.append(answ)
+    return finalAnsw
+
 
 
 if __name__ == '__main__':
