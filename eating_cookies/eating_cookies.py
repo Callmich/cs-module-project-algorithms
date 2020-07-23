@@ -2,17 +2,30 @@
 Input: an integer
 Returns: an integer
 '''
-def eating_cookies(n):
+
+# Day 1
+# def eating_cookies(n):
+#     if n < 0:
+#         return 0
+#     if n < 2:
+#         return 1
+#     else:
+#         return eating_cookies(n-1) + eating_cookies(n-2) + eating_cookies(n-3) 
+
+# Day 2
+def eating_cookies(n, cache=None):
     if n < 0:
         return 0
     if n < 2:
         return 1
+    elif cache is not None and cache[n]>0:
+        return cache[n]
     else:
-        return eating_cookies(n-1) + eating_cookies(n-2) + eating_cookies(n-3) 
+        if cache is None:
+            cache = [0 for i in range(n+1)]
+        cache[n] = eating_cookies(n-1, cache) + eating_cookies(n-2, cache) + eating_cookies(n-3, cache)
+    return cache[n]
 
-
-# if there is less than 2 cookies there is only one way to eat it
-# I want to set a counter and update it by one two or three recursively until the counter either hits n or goes over it
     
 
 if __name__ == "__main__":
