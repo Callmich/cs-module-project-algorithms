@@ -8,7 +8,7 @@ def eating_cookies(n):
     if n < 2:
         return 1
     else:
-        return eating_cookies(n-1) + eating_cookies(n-2) + eating_cookies(n-3)
+        return eating_cookies(n-1) + eating_cookies(n-2) + eating_cookies(n-3) 
 
 
 # if there is less than 2 cookies there is only one way to eat it
