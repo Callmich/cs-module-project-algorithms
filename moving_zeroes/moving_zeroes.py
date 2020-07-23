@@ -36,28 +36,29 @@ def moving_zeroes(arr):
     # initialize a left and right pointer
     # left is 0
     # right is last index in arr
-    leftPointer = arr[0]
-    rightPointer = arr[1]
+    leftPointer = 0
+    rightPointer = len(arr) -1
     # while left <= right:
     while leftPointer < rightPointer:
-        if rightPointer == arr[len(arr)-1]:
-            rightPointer = arr[len(arr)-2]
+        # if arr[rightPointer] == arr[len(arr)-1] and arr[leftPointer] != 0 and arr[rightPointer] != 0:
+        #     arr[rightPointer] = arr[len(arr)-2]
+        #     rightPointer -= 1
         # if left points at a zero and right points at non-zero
             # swap left and right items in original arr
             # increment left
             # decrement right
-        if leftPointer == 0 and rightPointer != 0:
-            leftPointer, rightPointer = rightPointer, leftPointer
-            rightPointer += 1
+        if arr[leftPointer] == 0 and arr[rightPointer] != 0:
+            arr[leftPointer], arr[rightPointer] = arr[rightPointer], arr[leftPointer]
+            rightPointer -= 1
             leftPointer += 1
         else:
             # if left is non-zero:
                 # increment left
             # if right is zero:
                 # decrement right
-            if rightPointer == 0:
-                rightPointer += 1
-            if leftPointer != 0:
+            if arr[rightPointer] == 0:
+                rightPointer -= 1
+            if arr[leftPointer] != 0:
                 leftPointer += 1
     return arr
 
