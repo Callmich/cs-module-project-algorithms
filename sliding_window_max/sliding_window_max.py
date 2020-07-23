@@ -3,9 +3,21 @@ Input: a List of integers as well as an integer `k` representing the size of the
 Returns: a List of integers
 '''
 def sliding_window_max(nums, k):
-    # Your code here
-
-    pass
+    # set an answer list
+    # for loop length of nums going through the list
+    # if there are values in the window nums[x + k - 1]
+        # set a temp variable for the string
+        # compare the numbers in the temp variable
+        # append the largest into the answer list
+    finalAnswer = []
+    for x in range(len(nums)-k + 1):
+        if nums[x + (k-1)]:
+            tempArr = []
+            tempArr.extend(nums)
+            tempArr = tempArr[x:x+k]
+            finalAnswer.append(max(tempArr))
+    return finalAnswer
+    
 
 
 if __name__ == '__main__':
